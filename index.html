@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Bhuvana Chandra Eswara Rao, a Python Full Stack Developer and Computer Science Engineering (Artificial Intelligence) graduate.">
+    <meta name="theme-color" content="#0b0b10">
+    <title>Bhuvana Chandra Eswara Rao| Python Full Stack Developer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===================== SIDEBAR (desktop) / TOP BAR (mobile) ===================== -->
+    <header class="sidebar">
+        <a class="sidebar__profile" href="#home" aria-label="Go to the top of the page">
+            <img class="sidebar__avatar" src="images/profile.jpg" alt="Portrait of Bhuvana Chandra Eswara Rao" width="160" height="160">
+            <span class="sidebar__id">
+                <span class="sidebar__name">Bhuvana Chandra Eswara Rao</span>
+                <span class="sidebar__role">Python Full Stack Developer</span>
+            </span>
+        </a>
+
+        <nav class="nav" aria-label="Main navigation">
+            <ul class="nav__list">
+                <li><a class="nav__link nav__link--home" href="#home">Home</a></li>
+                <li><a class="nav__link" href="#about">About Me</a></li>
+                <li><a class="nav__link" href="#skills">Skills</a></li>
+                <li><a class="nav__link" href="#education">Education</a></li>
+                <li><a class="nav__link" href="#projects">Projects</a></li>
+                <li><a class="nav__link" href="#resume">Resume</a></li>
+                <li><a class="nav__link" href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+
+        <!-- ===================== 1. HOME ===================== -->
+        <section id="home" class="section hero" aria-labelledby="hero-title">
+            <div class="hero__inner">
+                <div class="hero__text">
+                    <p class="hero__eyebrow">HELLO, I'M</p>
+                    <h1 id="hero-title" class="hero__name">Bhuvana Chandra Eswara Rao</h1>
+                    <p class="hero__role">Python Full Stack Developer</p>
+                    <p class="hero__intro">
+                        I am a Computer Science Engineering graduate specializing in Artificial Intelligence.
+                        I enjoy writing Python, building web applications, and turning ideas into practical software.
+                        My goal is to start my career as a Python Developer and keep growing with every project.
+                    </p>
+                    <div class="hero__actions">
+                        <a class="btn btn--primary" href="#projects">View My Projects</a>
+                        <a class="btn btn--ghost" href="#contact">Contact Me</a>
+                    </div>
+                </div>
+
+                <div class="hero__photo">
+                    <div class="avatar-ring">
+                        <img src="images/profile.jpg" alt="Bhuvana Chandra Eswara Rao, Python Full Stack Developer" width="320" height="320">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navy starry background wraps About -> Contact (see ".backdrop" in style.css) -->
+        <div class="backdrop">
+
+        <!-- ===================== 2. ABOUT ME ===================== -->
+        <section id="about" class="section" aria-labelledby="about-title">
+            <header class="section__head">
+                <p class="section__kicker">Who I am</p>
+                <h2 id="about-title" class="section__title">About Me</h2>
+            </header>
+
+            <p class="lead">
+                Hello, I'm Bhuvana Chandra Eswara Rao. I am a Computer Science Engineering graduate specializing in
+                Artificial Intelligence. I am passionate about Python programming, web development, and building
+                practical software applications. I am looking forward to starting my career as a Python Developer.
+            </p>
+            <p class="lead lead--muted">
+                I completed my B.Tech at Pragati Engineering College (graduating in 2026) and trained in
+                Python Full Stack Development with 10,000 Coders. I am a quick learner with a hard-working,
+                problem-solving mindset, and I am always interested in learning new technologies.
+            </p>
+
+            <div class="grid grid--cards">
+                <article class="card card--glass">
+                    <span class="card__icon" aria-hidden="true">🎓</span>
+                    <h3 class="card__title">Education</h3>
+                    <p class="card__text">B.Tech in Computer Science and Engineering (Artificial Intelligence) from Pragati Engineering College, class of 2026.</p>
+                </article>
+                <article class="card card--glass">
+                    <span class="card__icon" aria-hidden="true">🐍</span>
+                    <h3 class="card__title">Python Development</h3>
+                    <p class="card__text">Passionate about Python, from automation scripts to computer-vision projects and backend services.</p>
+                </article>
+                <article class="card card--glass">
+                    <span class="card__icon" aria-hidden="true">🌐</span>
+                    <h3 class="card__title">Web Development</h3>
+                    <p class="card__text">Trained in Python Full Stack Development, covering frontend, backend frameworks and databases.</p>
+                </article>
+                <article class="card card--glass">
+                    <span class="card__icon" aria-hidden="true">🎯</span>
+                    <h3 class="card__title">Career Objective</h3>
+                    <p class="card__text">To begin my career as a Python Developer and build practical, reliable software while learning from experienced teams.</p>
+                </article>
+            </div>
+
+            <ul class="chips chips--strengths" aria-label="Personal strengths">
+                <li class="chip">Quick learner</li>
+                <li class="chip">Hard-working</li>
+                <li class="chip">Problem-solving mindset</li>
+                <li class="chip">Interested in learning new technologies</li>
+            </ul>
+        </section>
+
+        <!-- ===================== 3. TECHNICAL SKILLS ===================== -->
+        <section id="skills" class="section skills" aria-labelledby="skills-title">
+            <header class="section__head">
+                <p class="section__kicker">What I work with</p>
+                <h2 id="skills-title" class="section__title">Technical Skills</h2>
+            </header>
+
+            <!-- CSS-only filter: radio buttons + :has() in style.css. No JavaScript. -->
+            <div class="skill-filter" role="radiogroup" aria-label="Filter skills by category">
+                    <input class="skill-filter__input" type="radio" name="skill-filter" id="filter-all" checked>
+                    <label class="skill-filter__tab" for="filter-all">All</label>
+                    <input class="skill-filter__input" type="radio" name="skill-filter" id="filter-programming">
+                    <label class="skill-filter__tab" for="filter-programming">Programming</label>
+                    <input class="skill-filter__input" type="radio" name="skill-filter" id="filter-frontend">
+                    <label class="skill-filter__tab" for="filter-frontend">Frontend</label>
+                    <input class="skill-filter__input" type="radio" name="skill-filter" id="filter-backend">
+                    <label class="skill-filter__tab" for="filter-backend">Backend</label>
+                    <input class="skill-filter__input" type="radio" name="skill-filter" id="filter-database">
+                    <label class="skill-filter__tab" for="filter-database">Database</label>
+                    <input class="skill-filter__input" type="radio" name="skill-filter" id="filter-tools">
+                    <label class="skill-filter__tab" for="filter-tools">Tools</label>
+            </div>
+
+            <!--
+                Each icon is an inline SVG drawn for this project (not the official logo).
+                To use your own logo, replace the <svg ...>...</svg> inside a tile with:
+                <img src="images/skills/your-logo.png" alt="" width="48" height="48">
+            -->
+            <ul class="skill-grid">
+                    <li class="skill skill--python skill--programming">
+                        <span class="skill__icon"><svg class="skill__svg" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true" focusable="false"><path fill="#3776ab" d="M31 6c-10 0-9.4 4.4-9.4 4.4V15H31.200v1.400H17.500S11 15.600 11 26s5.700 10 5.700 10H20v-4.800s-.3-5.700 5.600-5.700h9.800s5.500.1 5.500-5.300V11.600S42.800 6 31 6z"/><circle cx="25.500" cy="11" r="1.800" fill="#fff"/><g transform="rotate(180 32 32)"><path fill="#ffd43b" d="M31 6c-10 0-9.400 4.400-9.400 4.400V15H31.200v1.400H17.500S11 15.600 11 26s5.700 10 5.700 10H20v-4.800s-.3-5.700 5.600-5.700h9.800s5.500.1 5.500-5.300V11.600S42.800 6 31 6z"/><circle cx="25.500" cy="11" r="1.800" fill="#fff"/></g></svg></span>
+                        <span class="skill__name">Python</span>
+                    </li>
+                    <li class="skill skill--c skill--programming">
+                        <span class="skill__icon"><svg class="skill__svg" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true" focusable="false"><polygon points="32,4 56,18 56,46 32,60 8,46 8,18" fill="#00599c"/><path d="M43 25a13 13 0 1 0 0 14" fill="none" stroke="#fff" stroke-width="7"/></svg></span>
+                        <span class="skill__name">C</span>
+                    </li>
+                    <li class="skill skill--html5 skill--frontend">
+                        <span class="skill__icon"><svg class="skill__svg" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true" focusable="false"><polygon points="9,6 55,6 51,52 32,59 13,52" fill="#e44d26"/><polygon points="32,10 32,55 47,50 50.500,10" fill="#f16529"/><polyline points="42,19 24,19 25,31 40,31 38.500,42 32,44.500 25.500,42 25,37" fill="none" stroke="#fff" stroke-width="4.500" stroke-linejoin="round"/></svg></span>
+                        <span class="skill__name">HTML5</span>
+                    </li>
+                    <li class="skill skill--css3 skill--frontend">
+                        <span class="skill__icon"><svg class="skill__svg" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true" focusable="false"><polygon points="9,6 55,6 51,52 32,59 13,52" fill="#1572b6"/><polygon points="32,10 32,55 47,50 50.500,10" fill="#33a9dc"/><path d="M24 19h18l-1.500 11H27.500M30 30h11l-1.800 12.500L32 45l-7.500-2.500" fill="none" stroke="#fff" stroke-width="4.500" stroke-linejoin="round"/></svg></span>
+                        <span class="skill__name">CSS3</span>
+                    </li>
+                    <li class="skill skill--fastapi skill--backend">
+                        <span class="skill__icon"><svg class="skill__svg" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="28" fill="#009688"/><polygon points="36,11 21,36 31,36 28,53 44,27 34,27" fill="#fff"/></svg></span>
+                        <span class="skill__name">FastAPI</span>
+                    </li>
+                    <li class="skill skill--flask skill--backend">
+                        <span class="skill__icon"><svg class="skill__svg" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true" focusable="false"><path d="M26 8h12M28 8v18L14 49a5 5 0 0 0 4.300 8h27.400A5 5 0 0 0 50 49L36 26V8" fill="none" stroke="#e5e7eb" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><path d="M21 42h22l5 8a2.500 2.500 0 0 1-2.200 4H18.200A2.500 2.500 0 0 1 16 50z" fill="#ef4444"/></svg></span>
+                        <span class="skill__name">Flask</span>
+                    </li>
+                    <li class="skill skill--nodejs skill--backend">
+                        <span class="skill__icon"><svg class="skill__svg" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true" focusable="false"><polygon points="32,5 54,18 54,46 32,59 10,46 10,18" fill="none" stroke="#5fa04e" stroke-width="5" stroke-linejoin="round"/><text x="32" y="40" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="18" fill="#5fa04e">JS</text></svg></span>
+                        <span class="skill__name">Node.js</span>
+                    </li>
+                    <li class="skill skill--express skill--backend">
+                        <span class="skill__icon"><svg class="skill__svg" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true" focusable="false"><text x="32" y="42" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="30" fill="#e5e7eb">ex</text></svg></span>
+                        <span class="skill__name">Express.js</span>
+                    </li>
+                    <li class="skill skill--mongodb skill--database">
+                        <span class="skill__icon"><svg class="skill__svg" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true" focusable="false"><path fill="#47a248" d="M32 4c-1.200 9-11 14.500-11 29 0 10.500 6.500 15.500 9.500 17.500L31 58h2l.5-7.500C36.500 48.500 43 43.500 43 33 43 18.500 33.200 13 32 4z"/><path d="M32 12v40" stroke="#b8e0b0" stroke-width="1.800" fill="none"/></svg></span>
+                        <span class="skill__name">MongoDB</span>
+                    </li>
+                    <li class="skill skill--mysql skill--database">
+                        <span class="skill__icon"><svg class="skill__svg" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true" focusable="false"><path d="M12 16v32c0 5 9 9 20 9s20-4 20-9V16" fill="none" stroke="#4479a1" stroke-width="4"/><ellipse cx="32" cy="16" rx="20" ry="8" fill="none" stroke="#4479a1" stroke-width="4"/><path d="M12 32c0 5 9 9 20 9s20-4 20-9" fill="none" stroke="#f29111" stroke-width="4"/></svg></span>
+                        <span class="skill__name">MySQL</span>
+                    </li>
+                    <li class="skill skill--git skill--tools">
+                        <span class="skill__icon"><svg class="skill__svg" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true" focusable="false"><rect x="12" y="12" width="40" height="40" rx="7" transform="rotate(45 32 32)" fill="#f05133"/><path d="M32 22v20M32 35l10-7" stroke="#fff" stroke-width="3.500" fill="none"/><circle cx="32" cy="22" r="4.500" fill="#fff"/><circle cx="32" cy="42" r="4.500" fill="#fff"/><circle cx="42" cy="28" r="4.500" fill="#fff"/></svg></span>
+                        <span class="skill__name">Git</span>
+                    </li>
+                    <li class="skill skill--github skill--tools">
+                        <span class="skill__icon"><svg class="skill__svg" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="28" fill="#e5e7eb"/><path fill="#0b0b10" d="M19 17l8 5a16 16 0 0 1 10 0l8-5c1.500 3.500 1.800 7 1 10 2 2.500 3 5.500 3 8.500 0 9-7 13.500-16 13.500S19 45 19 36c0-3 1-6 3-8.500-.8-3-.5-6.500-3-10.500z"/><circle cx="26" cy="35" r="2.500" fill="#e5e7eb"/><circle cx="38" cy="35" r="2.500" fill="#e5e7eb"/></svg></span>
+                        <span class="skill__name">GitHub</span>
+                    </li>
+                    <li class="skill skill--vscode skill--tools">
+                        <span class="skill__icon"><svg class="skill__svg" viewBox="0 0 64 64" width="48" height="48" aria-hidden="true" focusable="false"><polygon points="44,5 58,12 58,52 44,59 18,35 9,42 4,39 4,25 9,22 18,29" fill="#1f9cf0"/><polygon points="44,20 44,44 29,32" fill="#0b0b10"/></svg></span>
+                        <span class="skill__name">VS Code</span>
+                    </li>
+            </ul>
+        </section>
+
+        <!-- ===================== 4. EDUCATION ===================== -->
+        <section id="education" class="section" aria-labelledby="education-title">
+            <header class="section__head">
+                <p class="section__kicker">My journey</p>
+                <h2 id="education-title" class="section__title">Education</h2>
+            </header>
+
+            <ol class="timeline">
+                <li class="timeline__item">
+                    <article class="card card--glass">
+                        <p class="timeline__date">Graduation: 2026</p>
+                        <h3 class="card__title">B.Tech — CSE Artificial Intelligence</h3>
+                        <p class="card__text">Pragati Engineering College</p>
+                    </article>
+                </li>
+                <li class="timeline__item">
+                    <article class="card card--glass">
+                        <p class="timeline__date">Training</p>
+                        <h3 class="card__title">Python Full Stack Development Training</h3>
+                        <p class="card__text">10,000 Coders</p>
+                    </article>
+                </li>
+            </ol>
+        </section>
+
+        <!-- ===================== 5. PROJECTS ===================== -->
+        <section id="projects" class="section" aria-labelledby="projects-title">
+            <header class="section__head">
+                <p class="section__kicker">What I've built</p>
+                <h2 id="projects-title" class="section__title">Projects</h2>
+            </header>
+
+            <!-- Replace each GitHub / Live Demo "href" below with your real links. -->
+            <div class="grid grid--projects">
+
+                <article class="project card card--glass">
+                    <div class="project__media">
+                        <img src="images/project1.jpg" alt="Placeholder image for the YOLOv8 Café Occupancy Monitoring System" width="640" height="360" loading="lazy">
+                    </div>
+                    <div class="project__body">
+                        <h3 class="project__title">YOLOv8 Café Occupancy Monitoring System</h3>
+                        <p class="card__text">An academic project that uses Python, YOLOv8, and OpenCV to detect and count people in video feeds and monitor café occupancy and seat availability.</p>
+                        <ul class="chips chips--small" aria-label="Technologies used">
+                            <li class="chip">Python</li>
+                            <li class="chip">YOLOv8</li>
+                            <li class="chip">OpenCV</li>
+                        </ul>
+                        <div class="project__actions">
+                            <a class="btn btn--small btn--ghost" href="https://github.com/YOUR-USERNAME/YOUR-REPO-1" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            <a class="btn btn--small btn--primary" href="https://YOUR-LIVE-DEMO-1.example.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project card card--glass">
+                    <div class="project__media">
+                        <img src="images/project2.jpg" alt="Placeholder image for the Telegram Automation Bot" width="640" height="360" loading="lazy">
+                    </div>
+                    <div class="project__body">
+                        <h3 class="project__title">Telegram Automation Bot</h3>
+                        <p class="card__text">A Telegram automation project designed to simplify configured tasks and repetitive interactions.</p>
+                        <ul class="chips chips--small" aria-label="Technologies used">
+                            <li class="chip">Python</li>
+                            <li class="chip">Telegram libraries</li>
+                        </ul>
+                        <div class="project__actions">
+                            <a class="btn btn--small btn--ghost" href="https://github.com/YOUR-USERNAME/YOUR-REPO-2" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            <a class="btn btn--small btn--primary" href="https://YOUR-LIVE-DEMO-2.example.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project card card--glass">
+                    <div class="project__media">
+                        <img src="images/project3.jpg" alt="Placeholder image for the Normal Language Translator" width="640" height="360" loading="lazy">
+                    </div>
+                    <div class="project__body">
+                        <h3 class="project__title">Normal Language Translator</h3>
+                        <p class="card__text">A language translation application that helps users translate text between supported languages.</p>
+                        <ul class="chips chips--small" aria-label="Technologies used">
+                            <li class="chip">Python</li>
+                        </ul>
+                        <div class="project__actions">
+                            <a class="btn btn--small btn--ghost" href="https://github.com/YOUR-USERNAME/YOUR-REPO-3" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            <a class="btn btn--small btn--primary" href="https://YOUR-LIVE-DEMO-3.example.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project card card--glass">
+                    <div class="project__media">
+                        <img src="images/project4.jpg" alt="Placeholder image for the AI Call Agent project" width="640" height="360" loading="lazy">
+                        <span class="badge badge--progress">In Progress</span>
+                    </div>
+                    <div class="project__body">
+                        <h3 class="project__title">AI Call Agent</h3>
+                        <p class="card__text">An AI call-agent project currently under development.</p>
+                        <ul class="chips chips--small" aria-label="Technologies used">
+                            <li class="chip">Python</li>
+                        </ul>
+                        <div class="project__actions">
+                            <a class="btn btn--small btn--ghost" href="https://github.com/YOUR-USERNAME/YOUR-REPO-4" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            <span class="btn btn--small btn--disabled" aria-disabled="true">Demo not available yet</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ===================== 6. RESUME ===================== -->
+        <section id="resume" class="section" aria-labelledby="resume-title">
+            <header class="section__head">
+                <p class="section__kicker">The details</p>
+                <h2 id="resume-title" class="section__title">Resume</h2>
+            </header>
+
+            <div class="card card--glass resume">
+                <p class="lead">
+                    Want the full picture? My resume covers my education, training, technical skills and projects in one page.
+                </p>
+                <div class="resume__actions">
+                    <!-- To use a different file, change the href (and keep the file in the project folder). -->
+                    <a class="btn btn--primary" href="resume.pdf" download="Bhavan-Chandreshwar-Rao-Resume.pdf">Download Resume</a>
+                    <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
+                </div>
+                <p class="note">
+                    Note: the included <code>resume.pdf</code> is only a placeholder. Replace it with your own resume
+                    PDF (same file name) so both buttons work.
+                </p>
+            </div>
+        </section>
+
+        <!-- ===================== 7. CONTACT ===================== -->
+        <section id="contact" class="section" aria-labelledby="contact-title">
+            <header class="section__head">
+                <p class="section__kicker">Get in touch</p>
+                <h2 id="contact-title" class="section__title">Contact</h2>
+            </header>
+
+            <div class="contact">
+                <div class="card card--glass contact__info">
+                    <h3 class="card__title">Let's connect</h3>
+                    <p class="card__text">I'm open to Python Developer opportunities. Send a message or reach out through the links below.</p>
+                    <ul class="contact__list">
+                        <li><span class="contact__label">Email</span> <a href="mailto:your-email@example.com">your-email@example.com</a></li>
+                        <li><span class="contact__label">GitHub</span> <a href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener noreferrer">github.com/YOUR-USERNAME</a></li>
+                        <li><span class="contact__label">LinkedIn</span> <a href="https://www.linkedin.com/in/YOUR-PROFILE" target="_blank" rel="noopener noreferrer">linkedin.com/in/YOUR-PROFILE</a></li>
+                    </ul>
+                </div>
+
+                <!--
+                    IMPORTANT: HTML and CSS alone cannot send emails or store form data.
+                    This form is NOT connected to any backend yet. See README.md ("Connecting the contact form")
+                    for how to wire it to a service such as Formspree or Netlify Forms, or to your own backend.
+                -->
+                <form class="card card--glass form" action="#contact" method="post">
+                    <div class="form__row">
+                        <label class="form__label" for="name">Name</label>
+                        <input class="form__control" type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required>
+                    </div>
+                    <div class="form__row">
+                        <label class="form__label" for="email">Email</label>
+                        <input class="form__control" type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+                    </div>
+                    <div class="form__row">
+                        <label class="form__label" for="subject">Subject</label>
+                        <input class="form__control" type="text" id="subject" name="subject" placeholder="What is this about?" required>
+                    </div>
+                    <div class="form__row">
+                        <label class="form__label" for="message">Message</label>
+                        <textarea class="form__control" id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <button class="btn btn--primary" type="submit">Submit</button>
+                    <p class="note">This demo form is not connected to a backend, so submitting it does not send a message yet.</p>
+                </form>
+            </div>
+        </section>
+
+        </div><!-- /.backdrop -->
+
+    </main>
+
+    <!-- ===================== 8. FOOTER ===================== -->
+    <footer class="footer" id="footer">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <p class="footer__name">Bhavan Chandreshwar Rao</p>
+                <p class="footer__role">Python Full Stack Developer</p>
+            </div>
+
+            <ul class="footer__social" aria-label="Social links">
+                <li><a href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/YOUR-PROFILE" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="mailto:your-email@example.com">Email</a></li>
+            </ul>
+
+            <a class="footer__top" href="#home">Back to Top ↑</a>
+        </div>
+        <p class="footer__copy">&copy; 2026 Bhavan Chandreshwar Rao. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
