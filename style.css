@@ -1,6 +1,6 @@
 /* =========================================================
    Bhavan Chandreshwar Rao — Portfolio
-   HTML5 + CSS3 only (no JavaScript)
+   HTML5 + CSS3, plus a small script.js for scroll animations
    ---------------------------------------------------------
    Contents
    1. Design tokens
@@ -57,6 +57,7 @@
 }
 
 html {
+    overflow-x: clip;
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
 }
@@ -68,7 +69,21 @@ body {
     line-height: 1.65;
     color: var(--text);
     background: var(--bg);
-    overflow-x: hidden;
+    /* No overflow here: html { overflow-x: clip } handles it and keeps scroll animations working */
+}
+
+/* Page-wide animated glow (same as the Home background), behind every section */
+body::before {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.35), transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.28), transparent 40%),
+        radial-gradient(circle at 60% 85%, rgba(239, 68, 68, 0.25), transparent 42%);
+    animation: bg-drift 18s ease-in-out infinite alternate;
 }
 
 img {
@@ -177,52 +192,6 @@ code {
     gap: 1.75rem;
 }
 
-/* ---------- Backdrop: navy starry background (About -> Contact) ---------- */
-.backdrop {
-    position: relative;
-    isolation: isolate;
-    background:
-        radial-gradient(48rem 34rem at 12% 4%, rgba(59, 130, 246, 0.20), transparent 62%),
-        radial-gradient(44rem 34rem at 92% 22%, rgba(139, 92, 246, 0.22), transparent 62%),
-        radial-gradient(48rem 34rem at 8% 46%, rgba(139, 92, 246, 0.16), transparent 62%),
-        radial-gradient(44rem 34rem at 90% 70%, rgba(59, 130, 246, 0.18), transparent 62%),
-        radial-gradient(48rem 30rem at 20% 98%, rgba(59, 130, 246, 0.20), transparent 62%),
-        linear-gradient(180deg, #060a1d 0%, #0a1030 45%, #070b22 100%);
-}
-
-/* Two layers of tiny dots; one twinkles, one slowly drifts */
-.backdrop::before,
-.backdrop::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-}
-
-.backdrop::before {
-    background-image:
-        radial-gradient(1.5px 1.5px at 40px 60px, #9db4ff, transparent 70%),
-        radial-gradient(1px 1px at 150px 120px, #c4b5fd, transparent 70%),
-        radial-gradient(2px 2px at 260px 40px, #7aa2ff, transparent 70%),
-        radial-gradient(1px 1px at 90px 200px, #ffffff, transparent 70%),
-        radial-gradient(1.5px 1.5px at 310px 180px, #a78bfa, transparent 70%);
-    background-size: 340px 260px;
-    opacity: 0.9;
-    animation: twinkle 6s ease-in-out infinite alternate;
-}
-
-.backdrop::after {
-    background-image:
-        radial-gradient(1px 1px at 70px 90px, #93c5fd, transparent 70%),
-        radial-gradient(2px 2px at 220px 210px, #8b5cf6, transparent 70%),
-        radial-gradient(1px 1px at 380px 40px, #ffffff, transparent 70%),
-        radial-gradient(1.5px 1.5px at 450px 300px, #60a5fa, transparent 70%);
-    background-size: 520px 380px;
-    opacity: 0.85;
-    animation: drift 60s linear infinite;
-}
-
 /* ---------- 4. Sidebar & navigation ---------- */
 .sidebar {
     position: fixed;
@@ -239,6 +208,7 @@ code {
         var(--charcoal);
     border-right: 1px solid var(--border);
     overflow-y: auto;
+    animation: panel-in-left 0.9s 1.1s var(--ease) both;
 }
 
 .sidebar__profile {
@@ -513,21 +483,6 @@ body:has(#contact:target) .nav__link--home::before {
     align-items: center;
     min-height: 100vh;
     max-width: none;
-    overflow: hidden;
-    isolation: isolate;
-}
-
-/* Animated gradient background (CSS only) */
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: -20%;
-    z-index: -1;
-    background:
-        radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.35), transparent 40%),
-        radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.28), transparent 40%),
-        radial-gradient(circle at 60% 85%, rgba(239, 68, 68, 0.25), transparent 42%);
-    animation: bg-drift 18s ease-in-out infinite alternate;
 }
 
 .hero__inner {
@@ -541,7 +496,6 @@ body:has(#contact:target) .nav__link--home::before {
 
 .hero__text {
     flex: 1 1 28rem;
-    animation: fade-up 0.9s var(--ease) both;
 }
 
 .hero__eyebrow {
@@ -583,7 +537,6 @@ body:has(#contact:target) .nav__link--home::before {
 
 .hero__photo {
     flex: 0 0 auto;
-    animation: fade-up 0.9s 0.2s var(--ease) both;
 }
 
 .avatar-ring {
@@ -1058,16 +1011,6 @@ textarea.form__control {
     to   { transform: translate3d(3%, 3%, 0) scale(1.08); }
 }
 
-@keyframes twinkle {
-    from { opacity: 0.4; }
-    to   { opacity: 1; }
-}
-
-@keyframes drift {
-    from { background-position: 0 0; }
-    to   { background-position: 0 380px; }
-}
-
 @keyframes ring-spin {
     to { transform: rotate(360deg); }
 }
@@ -1076,17 +1019,152 @@ textarea.form__control {
     to { transform: rotate(-360deg); }
 }
 
-/* Scroll-triggered entrance (progressive enhancement: browsers without
-   scroll-driven animation support simply show the content normally). */
-@supports (animation-timeline: view()) {
-    .section:not(.hero) .section__head,
-    .section:not(.hero) .card,
-    .section:not(.hero) .lead,
-    .timeline__item {
-        animation: fade-up linear both;
-        animation-timeline: view();
-        animation-range: entry 0% entry 35%;
-    }
+/*
+ * New keyframes use the individual `translate` / `scale` properties
+ * (not `transform`) so the cards' hover transforms keep working.
+ */
+@keyframes rise {
+    from { opacity: 0; translate: 0 2.5rem; }
+    to   { opacity: 1; translate: 0 0; }
+}
+
+@keyframes slide-left-in {
+    from { opacity: 0; translate: -3.5rem 0; }
+    to   { opacity: 1; translate: 0 0; }
+}
+
+@keyframes slide-right-in {
+    from { opacity: 0; translate: 3.5rem 0; }
+    to   { opacity: 1; translate: 0 0; }
+}
+
+@keyframes zoom-in {
+    from { opacity: 0; scale: 0.85; translate: 0 1.5rem; }
+    to   { opacity: 1; scale: 1; translate: 0 0; }
+}
+
+/* Same as rise / zoom-in; a different name lets the animation restart on nav clicks */
+@keyframes rise-again {
+    from { opacity: 0; translate: 0 2.5rem; }
+    to   { opacity: 1; translate: 0 0; }
+}
+
+@keyframes zoom-again {
+    from { opacity: 0; scale: 0.85; translate: 0 1.5rem; }
+    to   { opacity: 1; scale: 1; translate: 0 0; }
+}
+
+@keyframes panel-in-left {
+    from { opacity: 0; translate: -100% 0; }
+    to   { opacity: 1; translate: 0 0; }
+}
+
+@keyframes panel-in-top {
+    from { opacity: 0; translate: 0 -100%; }
+    to   { opacity: 1; translate: 0 0; }
+}
+
+/* ----- Page intro: a cover that fades out, with a gradient "</>" mark ----- */
+html::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.35), transparent 45%),
+        radial-gradient(circle at 70% 70%, rgba(239, 68, 68, 0.25), transparent 45%),
+        #070711;
+    animation: intro-cover 1.9s ease forwards;
+}
+
+body::after {
+    content: "</>";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 9999;
+    pointer-events: none;
+    translate: -50% -50%;
+    font-size: clamp(3rem, 12vw, 6rem);
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: intro-mark 1.9s var(--ease) forwards;
+}
+
+@keyframes intro-cover {
+    0%, 62% { opacity: 1; visibility: visible; }
+    100%    { opacity: 0; visibility: hidden; }
+}
+
+@keyframes intro-mark {
+    0%   { opacity: 0; scale: 0.6; }
+    30%  { opacity: 1; scale: 1; }
+    62%  { opacity: 1; scale: 1.06; }
+    100% { opacity: 0; scale: 1.5; visibility: hidden; }
+}
+
+/* ----- Hero: staggered entrance after the intro ----- */
+.hero__eyebrow,
+.hero__name,
+.hero__role,
+.hero__intro,
+.hero__actions {
+    animation: rise 0.9s var(--ease) both;
+}
+
+.hero__eyebrow { animation-delay: 1.35s; }
+.hero__name    { animation-delay: 1.5s; }
+.hero__role    { animation-delay: 1.65s; }
+.hero__intro   { animation-delay: 1.8s; }
+.hero__actions { animation-delay: 1.95s; }
+
+.hero__photo {
+    animation: zoom-in 1.1s 1.6s var(--ease) both;
+}
+
+/* Clicking "Home" in the menu replays the hero entrance */
+.hero:target .hero__eyebrow,
+.hero:target .hero__name,
+.hero:target .hero__role,
+.hero:target .hero__intro,
+.hero:target .hero__actions {
+    animation-name: rise-again;
+}
+
+.hero:target .hero__eyebrow { animation-delay: 0.1s; }
+.hero:target .hero__name    { animation-delay: 0.25s; }
+.hero:target .hero__role    { animation-delay: 0.4s; }
+.hero:target .hero__intro   { animation-delay: 0.55s; }
+.hero:target .hero__actions { animation-delay: 0.7s; }
+
+.hero:target .hero__photo {
+    animation-name: zoom-again;
+    animation-delay: 0.3s;
+}
+
+/*
+ * Section entrance animations (About -> Contact).
+ * script.js adds .reveal to elements and toggles .in-view while they are on screen,
+ * so each animation plays again every time the element comes back into view.
+ * Elements are only hidden when script.js is running (html.js), so the page
+ * still shows everything if JavaScript is off or motion is reduced.
+ */
+.reveal--up    { --reveal-anim: rise; }
+.reveal--left  { --reveal-anim: slide-left-in; }
+.reveal--right { --reveal-anim: slide-right-in; }
+.reveal--zoom  { --reveal-anim: zoom-in; }
+
+.js .reveal {
+    opacity: 0;
+}
+
+.js .reveal.in-view {
+    animation: var(--reveal-anim, rise) 0.85s var(--ease) var(--d, 0s) both;
 }
 
 /* ---------- 15. Responsive breakpoints ---------- */
@@ -1111,6 +1189,10 @@ textarea.form__control {
         border-bottom: 1px solid var(--border);
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
+    }
+
+    .sidebar {
+        animation-name: panel-in-top;
     }
 
     .sidebar__profile {
@@ -1220,6 +1302,15 @@ textarea.form__control {
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
+    }
+
+    html::after,
+    body::after {
+        display: none;
+    }
+
+    .js .reveal {
+        opacity: 1 !important;
     }
 
     *,
